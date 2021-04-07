@@ -1,9 +1,23 @@
 import * as React from "react";
+import axios from "axios";
 import './App.css';
 
 const {useState} = React;
 
-function App() {
+const fecthData = () => {
+  return axios.get('https://randomuser.me/api')
+  .then(res => {
+    // handle success
+    console.log(res);
+    return res;
+  })
+  .catch(err => {
+    // handle error
+    console.error(err);
+  });
+}
+
+export  default function App() {
   const [antrian, setAntrian] = useState(0);
 
   return (
@@ -15,10 +29,12 @@ function App() {
 
         <button onClick={() => {
           setAntrian(antrian + 1)
+          console.log('foo');
         }}>Antrian Berikutnya</button>
+        <button onClick={() => {
+          fecthData();
+        }}>Fetch Data</button>
       </header>
     </div>
   );
 }
-
-export default App;
