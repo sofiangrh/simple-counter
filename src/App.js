@@ -38,7 +38,7 @@ export  default function App() {
         <button onClick={() => {
           setAntrian(antrian + 1)
           console.log('foo');
-        }}>Antrian Berikutnya</button>
+        }}>Next Count</button>
         <p>
           {randomUserDataJSON}
         </p>
